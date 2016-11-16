@@ -1,0 +1,54 @@
+/*
+public class TreeNode {
+    int val = 0;
+    TreeNode left = null;
+    TreeNode right = null;
+
+    public TreeNode(int val) {
+        this.val = val;
+
+    }
+
+}
+*/
+import java.util.ArrayList;
+public class Solution {
+    boolean isSymmetrical(TreeNode pRoot)
+    {
+        ArrayList<Integer>left=new ArrayList<Integer>();
+        ArrayList<Integer>right=new ArrayList<Integer>();
+        leftPre(pRoot,left);
+        rightPre(pRoot,right);
+        return (left.size()==7);
+    }
+    
+    void leftPre(TreeNode pRoot,ArrayList<Integer>left)
+    {
+        if(pRoot.left!=null)
+        {
+        
+        leftPre(pRoot.left,left);
+    }
+        left.add(pRoot.val);
+        if(pRoot.right!=null)
+            {
+        leftPre(pRoot.right,left);
+    }
+    }
+    
+    void rightPre(TreeNode pRoot,ArrayList<Integer>right)
+    {
+        if(pRoot.right!=null)
+            {
+        rightPre(pRoot.right,right);
+        
+        }
+        right.add(pRoot.val);
+        if(pRoot.left!=null)
+            {
+        rightPre(pRoot.left,right);
+    }
+    }
+    
+    
+}
